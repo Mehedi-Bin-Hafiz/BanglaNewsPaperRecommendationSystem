@@ -15,7 +15,7 @@ with open('/content/drive/MyDrive/Dataset - 01/pro-part-4.json') as json_file:
     # this line below may take at least 8-10 minutes of processing for 4-5 million rows. It converts all strings in list to actual json object
     data = list(map(json.loads, data))
 
-data[0]
+# data[0]
 
 df = pd.json_normalize(data[0])
 
