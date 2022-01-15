@@ -23,7 +23,6 @@ def label_sentences(corpus, label_type):
 X_train, X_test, y_train, y_test = train_test_split(df.stop_clean_body, df.target, random_state= 0 , test_size = 0.2)
 
 print(X_train.shape, X_test.shape)
-
 X_train = label_sentences(X_train, 'Train')
 X_test = label_sentences(X_test, 'Test')
 
