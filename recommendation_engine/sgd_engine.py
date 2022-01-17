@@ -1,6 +1,6 @@
 import joblib
 import pandas as pd
-model = joblib.load('C:\\Users\\Mehedi\\PycharmProjects\\NewsPaperSavedModel\\WithOutStopSGDbestMLModel')
+model = joblib.load('E:\\SavedModel\\NewsPaperSavedModel\\WithOutStopSGDbestMLModel')
 
 en_df = pd.read_excel('../database/EngineDataset.xlsx')
 
