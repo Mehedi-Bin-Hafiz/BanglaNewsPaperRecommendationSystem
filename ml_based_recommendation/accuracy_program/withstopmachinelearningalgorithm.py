@@ -15,139 +15,149 @@ from sklearn.linear_model import LogisticRegression, LogisticRegressionCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 
-df = pd.read_excel("/content/drive/MyDrive/colab/FinalDataset/FinalTrainAbleDataset.xlsx")
+df = pd.read_excel("../../database/FinalTrainAbleDataset.xlsx",engine='openpyxl')
 df.head(5)
 
 x = df.clean_body.values.astype('U')
 y = df['target'].values
 
+print("\n########## Random Forest Algorithm ###########")
+RandomPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
+                  ('RandomCLf', RandomForestClassifier(n_estimators=100)) ])
+
+X_train, X_test, y_train, y_test=train_test_split(x, y,test_size=0.20, random_state=0)
+RandomPipeLine.fit(X_train,y_train)
+y_pred=RandomPipeLine.predict(X_test)
+print("test size=30, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+
+
+X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
+RandomPipeLine.fit(X_train,y_train)
+y_pred=RandomPipeLine.predict(X_test)
+print("test size=40, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+
+
+X_train, X_test, y_train, y_test=train_test_split(x, y, test_size=0.30, random_state=0)
+RandomPipeLine.fit(X_train,y_train)
+y_pred=RandomPipeLine.predict(X_test)
+print("test size=50, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+
+
+X_train, X_test, y_train, y_test=train_test_split(x, y, test_size=0.35, random_state=0)
+RandomPipeLine.fit(X_train,y_train)
+y_pred=RandomPipeLine.predict(X_test)
+print("test size=60, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+
+
+
 print('######### Multi ############')
-X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=0)
-MultiPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
+MultiPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
                   ('Mulclf', MultinomialNB()) ])
+X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=0)
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=20, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
-MultiPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('Mulclf', MultinomialNB()) ])
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
-MultiPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('Mulclf', MultinomialNB()) ])
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
-MultiPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('Mulclf', MultinomialNB()) ])
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=35, accuracy = {0:.2f}".format(100*score),"%")
 
 print('########### SVC ############')
+SVCPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
+                  ('SVCclf', SVC()) ])
+
+
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=0)
-SVCPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('randomclf', SVC()) ])
 SVCPipeLine.fit(X_train, y_train)
 pred = SVCPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=20, accuracy = {0:.2f}".format(100*score),"%")
 
+
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
-SVCPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', SVC()) ])
 SVCPipeLine.fit(X_train, y_train)
 pred = SVCPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
-SVCPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', SVC()) ])
 SVCPipeLine.fit(X_train, y_train)
 pred = SVCPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
-SVCPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', SVC()) ])
 SVCPipeLine.fit(X_train, y_train)
 pred = SVCPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=35, accuracy = {0:.2f}".format(100*score),"%")
 
 print('########### KNN ############')
+KNNPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
+                  ('KNN', KNeighborsClassifier()) ])
+
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=0)
-KNNPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('randomclf', KNeighborsClassifier()) ])
 KNNPipeLine.fit(X_train, y_train)
 pred = KNNPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=20, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
-KNNPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', KNeighborsClassifier()) ])
 KNNPipeLine.fit(X_train, y_train)
 pred = KNNPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
-KNNPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', KNeighborsClassifier()) ])
 KNNPipeLine.fit(X_train, y_train)
 pred = KNNPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
-KNNPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', KNeighborsClassifier()) ])
 KNNPipeLine.fit(X_train, y_train)
 pred = KNNPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=35, accuracy = {0:.2f}".format(100*score),"%")
 
 print('########### SGD ############')
+SGDPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
+                  ('SGDclf', SGDClassifier(max_iter=1000, tol=1e-3,n_jobs=2,penalty="l2")) ])
+
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=0)
-SGDPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', SGDClassifier()) ])
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=20, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
-SGDPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', SGDClassifier()) ])
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
-SGDPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', SGDClassifier()) ])
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
 print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
-SGDPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),
-                  ('SGDclf', SGDClassifier()) ])
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
