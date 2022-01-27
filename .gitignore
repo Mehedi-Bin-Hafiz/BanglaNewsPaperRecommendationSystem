@@ -1,0 +1,9 @@
+.idea/
+.idea
+newsVenv
+.idea/
+data_preprocessing/.ipynb_checkpoints/
+doc2vec_recommendation/.ipynb_checkpoints/
+ml_based_recommendation/classification_report_jupyter/newsVenv/
+otherRequirements.txt
+prediction/realvspredictedsentiment.png
