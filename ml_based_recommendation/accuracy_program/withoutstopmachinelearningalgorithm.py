@@ -17,7 +17,7 @@ from sklearn.svm import SVC
 
 df = pd.read_excel("../../database/FinalTrainAbleDataset.xlsx",engine='openpyxl')
 df.head(5)
-x = df.stop_clean_body.values.astype('U')
+x = df.stop_clean_body.values.astype('U') #stop_clean_body contains no stopword
 y = df['target'].values
 
 
