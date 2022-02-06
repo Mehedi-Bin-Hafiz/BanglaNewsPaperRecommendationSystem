@@ -164,7 +164,7 @@ score=metrics.accuracy_score(y_test, pred)
 print("test size=35, accuracy = {0:.2f}".format(100*score),"%")
 
 #################### save the best model as joblib ######################
-
+#
 # import joblib
 # X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=0)
 # SGDPipeLineFinal = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,5))),

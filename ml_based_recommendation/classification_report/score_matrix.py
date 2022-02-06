@@ -36,11 +36,11 @@ X_train, X_test, y_train, y_test=train_test_split(x, y,test_size=0.20, random_st
 RandomPipeLine.fit(X_train,y_train)
 y_pred=RandomPipeLine.predict(X_test)
 score=f1_score(y_test, y_pred, average='weighted')
-print("test size=30, FScore = {0:.2f}".format(100*score),"%")
+print("test size = 20, FScore = {0:.2f}".format(100*score),"%")
 rscore=recall_score(y_test, y_pred, average='weighted')
-print("test size=30, RScore = {0:.2f}".format(100*rscore),"%")
+print("test size = 20, RScore = {0:.2f}".format(100*rscore),"%")
 pscore = precision_score(y_test, y_pred, average='weighted')
-print("test size=30, pScore = {0:.2f}".format(100*pscore),"%")
+print("test size = 20, pScore = {0:.2f}".format(100*pscore),"%")
 
 
 print('######### Multi ############')
@@ -51,11 +51,11 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=
 MultiPipeLine.fit(X_train, y_train)
 y_pred = MultiPipeLine.predict(X_test)
 score=f1_score(y_test, y_pred, average='weighted')
-print("test size=30, FScore = {0:.2f}".format(100*score),"%")
+print("test size = 20, FScore = {0:.2f}".format(100*score),"%")
 rscore=recall_score(y_test, y_pred, average='weighted')
-print("test size=30, RScore = {0:.2f}".format(100*rscore),"%")
+print("test size = 20, RScore = {0:.2f}".format(100*rscore),"%")
 pscore = precision_score(y_test, y_pred, average='weighted')
-print("test size=30, pScore = {0:.2f}".format(100*pscore),"%")
+print("test size = 20, pScore = {0:.2f}".format(100*pscore),"%")
 
 
 
@@ -68,11 +68,11 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=
 SVCPipeLine.fit(X_train, y_train)
 y_pred = SVCPipeLine.predict(X_test)
 score=f1_score(y_test, y_pred, average='weighted')
-print("test size=30, FScore = {0:.2f}".format(100*score),"%")
+print("test size = 20, FScore = {0:.2f}".format(100*score),"%")
 rscore=recall_score(y_test, y_pred, average='weighted')
-print("test size=30, RScore = {0:.2f}".format(100*rscore),"%")
+print("test size = 20, RScore = {0:.2f}".format(100*rscore),"%")
 pscore = precision_score(y_test, y_pred, average='weighted')
-print("test size=30, pScore = {0:.2f}".format(100*pscore),"%")
+print("test size = 20, pScore = {0:.2f}".format(100*pscore),"%")
 
 
 
@@ -86,11 +86,11 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=
 KNNPipeLine.fit(X_train, y_train)
 y_pred = KNNPipeLine.predict(X_test)
 score=f1_score(y_test, y_pred, average='weighted')
-print("test size=30, FScore = {0:.2f}".format(100*score),"%")
+print("test size = 20, FScore = {0:.2f}".format(100*score),"%")
 rscore=recall_score(y_test, y_pred, average='weighted')
-print("test size=30, RScore = {0:.2f}".format(100*rscore),"%")
+print("test size = 20, RScore = {0:.2f}".format(100*rscore),"%")
 pscore = precision_score(y_test, y_pred, average='weighted')
-print("test size=30, pScore = {0:.2f}".format(100*pscore),"%")
+print("test size = 20, pScore = {0:.2f}".format(100*pscore),"%")
 
 
 print('########### SGD ############')
@@ -101,9 +101,9 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=
 SGDPipeLine.fit(X_train, y_train)
 y_pred = SGDPipeLine.predict(X_test)
 score=f1_score(y_test, y_pred, average='weighted')
-print("test size=30, FScore = {0:.2f}".format(100*score),"%")
+print("test size = 20, FScore = {0:.2f}".format(100*score),"%")
 rscore=recall_score(y_test, y_pred, average='weighted')
-print("test size=30, RScore = {0:.2f}".format(100*rscore),"%")
+print("test size = 20, RScore = {0:.2f}".format(100*rscore),"%")
 pscore = precision_score(y_test, y_pred, average='weighted')
-print("test size=30, pScore = {0:.2f}".format(100*pscore),"%")
+print("test size = 20, pScore = {0:.2f}".format(100*pscore),"%")
 

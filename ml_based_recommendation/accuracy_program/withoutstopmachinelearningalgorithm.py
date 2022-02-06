@@ -30,25 +30,25 @@ RandomPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range
 X_train, X_test, y_train, y_test=train_test_split(x, y,test_size=0.20, random_state=0)
 RandomPipeLine.fit(X_train,y_train)
 y_pred=RandomPipeLine.predict(X_test)
-print("test size=30, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+print("test size = 0.20, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
 
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
 RandomPipeLine.fit(X_train,y_train)
 y_pred=RandomPipeLine.predict(X_test)
-print("test size=40, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+print("test size=25, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
 
 
 X_train, X_test, y_train, y_test=train_test_split(x, y, test_size=0.30, random_state=0)
 RandomPipeLine.fit(X_train,y_train)
 y_pred=RandomPipeLine.predict(X_test)
-print("test size=50, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+print("test size=30, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
 
 
 X_train, X_test, y_train, y_test=train_test_split(x, y, test_size=0.35, random_state=0)
 RandomPipeLine.fit(X_train,y_train)
 y_pred=RandomPipeLine.predict(X_test)
-print("test size=60, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
+print("test size=35, accuracy = {0:.2f}".format(100*metrics.accuracy_score(y_test, y_pred)),"%")
 
 
 
@@ -59,25 +59,25 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=20, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 20, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
+print("test size = 30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
 MultiPipeLine.fit(X_train, y_train)
 pred = MultiPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=35, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 35, accuracy = {0:.2f}".format(100*score),"%")
 
 print('########### SVC ############')
 SVCPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
@@ -88,20 +88,20 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=
 SVCPipeLine.fit(X_train, y_train)
 pred = SVCPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=20, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 20, accuracy = {0:.2f}".format(100*score),"%")
 
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
 SVCPipeLine.fit(X_train, y_train)
 pred = SVCPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
 SVCPipeLine.fit(X_train, y_train)
 pred = SVCPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
+print("test size = 30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
 SVCPipeLine.fit(X_train, y_train)
@@ -123,19 +123,19 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=
 KNNPipeLine.fit(X_train, y_train)
 pred = KNNPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
 KNNPipeLine.fit(X_train, y_train)
 pred = KNNPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
+print("test size = 30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
 KNNPipeLine.fit(X_train, y_train)
 pred = KNNPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=35, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 35, accuracy = {0:.2f}".format(100*score),"%")
 
 print('########### SGD ############')
 SGDPipeLine = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
@@ -145,25 +145,25 @@ X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=20, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 20, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25, random_state=0)
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=25, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 25, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.30, random_state=0)
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=30, accuracy = {0:.2f}".format(100*score),"%")
+print("test size = 30, accuracy = {0:.2f}".format(100*score),"%")
 
 X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.35, random_state=0)
 SGDPipeLine.fit(X_train, y_train)
 pred = SGDPipeLine.predict(X_test)
 score=metrics.accuracy_score(y_test, pred)
-print("test size=35, accuracy = {0:.2f}".format(100*score),"%")
+print("test size= 35, accuracy = {0:.2f}".format(100*score),"%")
 
 #################### save the best model as joblib ######################
 

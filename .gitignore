@@ -7,3 +7,7 @@ doc2vec_recommendation/.ipynb_checkpoints/
 ml_based_recommendation/classification_report_jupyter/newsVenv/
 otherRequirements.txt
 prediction/realvspredictedsentiment.png
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+

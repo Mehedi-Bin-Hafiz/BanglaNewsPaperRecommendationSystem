@@ -16,6 +16,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score,classification_report
 
+
 df = pd.read_excel("../../database/FinalTrainAbleDataset.xlsx")
 
 df.head(5)
@@ -77,9 +78,10 @@ score=metrics.accuracy_score(y_test, pred)
 print(classification_report(y_test,pred))
 
 
-#################### save the best model as joblib ######################
-
+# ################### save the best model as joblib ######################
+#
 # import joblib
+#
 # X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.20, random_state=0)
 # SGDPipeLineFinal = Pipeline([('tfidf', TfidfVectorizer(analyzer='word',ngram_range=(1,3))),
 #                   ('SGDclf', SGDClassifier(max_iter=1000, tol=1e-3,n_jobs=2,penalty="l2")) ])
