@@ -1,4 +1,3 @@
-
 import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfTransformer
@@ -14,7 +13,7 @@ from xgboost import XGBRFClassifier
 from sklearn.linear_model import LogisticRegression, LogisticRegressionCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score,classification_report
+from sklearn.metrics import accuracy_score, classification_report
 
 
 df = pd.read_excel("../../database/FinalTrainAbleDataset.xlsx")
